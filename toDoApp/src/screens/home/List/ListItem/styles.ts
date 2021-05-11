@@ -1,6 +1,5 @@
-import { Color } from '../../../styles/Pallete'
-
 import { StyleSheet } from 'react-native'
+import { Color } from '../../../../styles/Pallete'
 
 export const styles = StyleSheet.create({
   container: {
@@ -17,11 +16,13 @@ export const styles = StyleSheet.create({
     //backgroundColor: 'red',
   },
   textSection: {
-    flex: 3,
+    flex: 18,
     //backgroundColor: 'blue',
   },
   checkboxSection: {
     flex: 1,
+    //backgroundColor: 'teal',
+    justifyContent: 'center',
   },
   title: {
     flex: 1,

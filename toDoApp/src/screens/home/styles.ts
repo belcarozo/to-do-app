@@ -8,4 +8,8 @@ export const styles = StyleSheet.create({
     backgroundColor: Color.almostWhite,
     marginHorizontal: 0,
   },
+  center: {
+    alignItems: 'center',
+    //backgroundColor: 'blue',
+  },
 })
