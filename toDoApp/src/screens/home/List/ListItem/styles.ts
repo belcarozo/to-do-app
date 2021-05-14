@@ -13,24 +13,19 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
     paddingBottom: 14,
-    //backgroundColor: 'red',
   },
   textSection: {
     flex: 18,
-    //backgroundColor: 'blue',
   },
   checkboxSection: {
     flex: 1,
-    //backgroundColor: 'teal',
     justifyContent: 'center',
   },
   title: {
     flex: 1,
-    //backgroundColor: 'yellow',
   },
   subtitle: {
     flex: 1,
-    //backgroundColor: 'orange',
   },
   separator: {
     backgroundColor: Color.separator,
@@ -39,7 +34,7 @@ export const styles = StyleSheet.create({
   },
   titleFormat: {
     fontSize: 16,
-    fontFamily: 'SourceSansPro-Regular',
+    //fontFamily: 'SourceSansPro-Regular',
   },
   subtitleFormat: {
     color: Color.lightGray,

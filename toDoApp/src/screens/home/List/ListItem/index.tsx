@@ -3,10 +3,13 @@ import { View, Text } from 'react-native'
 import { styles } from './styles'
 import { Check } from './Check/index'
 
-//import { Color } from '../../../styles/Pallete'
-//import { styles } from './styles' //?
-
-export const ListItem = ({ title, subtitle }) => (
+export const ListItem: React.FC<{
+  title: string
+  subtitle: string
+  checked: boolean
+  id: number
+  onPress: (id: number) => () => void
+}> = ({ title, subtitle, checked, id, onPress }) => (
   <View style={styles.container}>
     <View style={styles.data}>
       <View style={styles.textSection}>
@@ -18,7 +21,7 @@ export const ListItem = ({ title, subtitle }) => (
         </View>
       </View>
       <View style={styles.checkboxSection}>
-        <Check />
+        <Check value={checked} onPress={onPress} id={id} />
       </View>
     </View>
     <View style={styles.separator} />
