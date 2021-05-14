@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { styles } from './styles'
 import { Check } from './Check/index'
 
@@ -9,13 +9,16 @@ export const ListItem: React.FC<{
   checked: boolean
   id: number
   onPress: (id: number) => () => void
-}> = ({ title, subtitle, checked, id, onPress }) => (
+  navigation: any
+}> = ({ title, subtitle, checked, id, onPress, navigation }) => (
   <View style={styles.container}>
     <View style={styles.data}>
       <View style={styles.textSection}>
-        <View style={styles.title}>
+        <Pressable
+          style={styles.pressableTitle}
+          onPress={() => navigation.navigate('Details')}>
           <Text style={styles.titleFormat}>{title}</Text>
-        </View>
+        </Pressable>
         <View style={styles.subtitle}>
           <Text style={styles.subtitleFormat}>{subtitle}</Text>
         </View>

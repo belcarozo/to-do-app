@@ -40,7 +40,7 @@ const DATA: listItemType[] = [
   },
 ]
 
-export const Home: React.FC<{}> = () => {
+export const Home: React.FC<{}> = ({ navigation }) => {
   const [list, setList] = useState(DATA)
 
   const onPress = useCallback(
@@ -61,9 +61,10 @@ export const Home: React.FC<{}> = () => {
         checked={item.checked}
         id={item.id}
         onPress={onPress}
+        navigation={navigation}
       />
     ),
-    [onPress],
+    [onPress, navigation],
   )
 
   const clearDone = useCallback(() => {
