@@ -5,7 +5,6 @@ import { ClearAllDone } from './ClearAllDone'
 import { List } from './List'
 import { ListItem } from './List/ListItem'
 import { styles } from './styles'
-import { TitleRectangle } from './TitleRectangle'
 import { listItemType } from './types'
 
 const DATA: listItemType[] = [
@@ -74,7 +73,6 @@ export const Home: React.FC<{}> = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TitleRectangle />
       <View>
         <List list={list} renderItem={renderItem} />
       </View>
