@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
   title: {
     color: 'black',
     fontSize: 36,
-    //fontFamily: 'SourceSansPro-Regular',
   },
   description: {
     paddingTop: 17,
@@ -26,13 +25,11 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     color: Color.xlPink,
     paddingTop: 18,
-    //paddingLeft: 18,
   },
   clear: {
     fontSize: 14,
     paddingVertical: 9,
     color: Color.xlPink,
-    //fontFamily: 'SourceSansPro',
     fontWeight: 'bold',
   },
   center: {

@@ -7,59 +7,60 @@ import { Pressable, Text } from 'react-native'
 import { NewTask } from '../screens/NewTask'
 import { Details } from '../screens/Details'
 import { homeProps, newTaskProps, RootStackParamList } from './types'
+import { constants, routes } from '../common/constants'
 
 export const AppContainer = () => {
   const Stack = createStackNavigator<RootStackParamList>()
 
   const homeHeader = ({ navigation }: homeProps) => ({
-    title: 'Todo',
+    title: constants.homeTitle,
     headerStyle: styles.header,
     headerTintColor: Color.almostWhite,
     headerRight: () => (
       <Pressable
         style={styles.button}
-        onPress={() => navigation.navigate('NewTask')}>
+        onPress={() => navigation.navigate(routes.newTask)}>
         <Text style={styles.addButton}>+</Text>
       </Pressable>
     ),
   })
 
   const newTaskHeader = ({ navigation }: newTaskProps) => ({
-    title: 'New task',
+    title: constants.newTaskTitle,
     headerStyle: styles.header,
     headerTintColor: Color.almostWhite,
     headerRight: () => (
       <Pressable
         style={styles.button}
-        onPress={() => navigation.navigate('NewTask')}>
+        onPress={() => navigation.navigate(routes.newTask)}>
         <Text style={styles.buttonText}>Save</Text>
       </Pressable>
     ),
     headerLeft: () => (
       <Pressable
         style={styles.button}
-        onPress={() => navigation.navigate('Home')}>
+        onPress={() => navigation.navigate(routes.home)}>
         <Text style={styles.buttonText}>Cancel</Text>
       </Pressable>
     ),
   })
 
   const detailsHeader = () => ({
-    title: 'Details',
+    title: constants.detailsTitle,
     headerStyle: styles.header,
     headerTintColor: Color.almostWhite,
   })
 
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Home} options={homeHeader} />
+    <Stack.Navigator initialRouteName={routes.home}>
+      <Stack.Screen name={routes.home} component={Home} options={homeHeader} />
       <Stack.Screen
-        name="NewTask"
+        name={routes.newTask}
         component={NewTask}
         options={newTaskHeader}
       />
       <Stack.Screen
-        name="Details"
+        name={routes.details}
         component={Details}
         options={detailsHeader}
       />
