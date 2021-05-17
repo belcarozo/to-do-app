@@ -6,7 +6,7 @@ export const constants = {
   detailsTitle: 'Details',
   newTaskTitle: 'New task',
   done: 'Done',
-  notDone: 'notDone',
+  notDone: 'Not done',
   add: '+',
   save: 'Save',
   cancel: 'Cancel',
