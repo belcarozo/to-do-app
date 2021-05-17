@@ -6,6 +6,7 @@ import { List } from './List'
 import { ListItem } from './List/ListItem'
 import { styles } from './styles'
 import { listItemType } from './types'
+import { homeProps } from '../../navigation/types'
 
 const DATA: listItemType[] = [
   {
@@ -40,7 +41,7 @@ const DATA: listItemType[] = [
   },
 ]
 
-export const Home: React.FC<{}> = ({ navigation }) => {
+export const Home: React.FC<homeProps> = ({ navigation }) => {
   const [list, setList] = useState(DATA)
 
   const onPress = useCallback(

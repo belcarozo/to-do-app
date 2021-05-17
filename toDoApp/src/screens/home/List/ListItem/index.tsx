@@ -9,14 +9,22 @@ export const ListItem: React.FC<{
   checked: boolean
   id: number
   onPress: (id: number) => () => void
-  navigation: any
+  navigation: any //mal
 }> = ({ title, subtitle, checked, id, onPress, navigation }) => (
   <View style={styles.container}>
     <View style={styles.data}>
       <View style={styles.textSection}>
         <Pressable
           style={styles.pressableTitle}
-          onPress={() => navigation.navigate('Details')}>
+          onPress={() =>
+            navigation.navigate('Details', {
+              title: title,
+              subtitle: subtitle,
+              checked: checked,
+              onPress: onPress,
+              id: id,
+            })
+          }>
           <Text style={styles.titleFormat}>{title}</Text>
         </Pressable>
         <View style={styles.subtitle}>

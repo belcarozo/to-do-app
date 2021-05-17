@@ -8,12 +8,16 @@ export const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    paddingRight: 15,
+    paddingHorizontal: 15,
     justifyContent: 'center',
   },
-  buttonText: {
+  addButton: {
     fontSize: 28,
     fontWeight: '300',
+    color: Color.almostWhite,
+  },
+  buttonText: {
+    fontSize: 17,
     color: Color.almostWhite,
   },
 })
