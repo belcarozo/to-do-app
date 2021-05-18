@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
-import { constants } from '../../../common/constants'
+import { constants, routes } from '../../../common/constants'
+import { DetailsScreenNavigationProp } from '../../../navigation/types'
 import { styles } from './styles'
 
 export const TextRectangle: React.FC<{
@@ -8,7 +9,7 @@ export const TextRectangle: React.FC<{
   description: string
   checked: boolean
   id: number
-  navigation: any
+  navigation: DetailsScreenNavigationProp
 }> = ({ title, description, checked, id, navigation }) => {
   const [isDone, changeState] = useState(checked)
   const showState = isDone ? constants.done : constants.notDone
@@ -21,7 +22,12 @@ export const TextRectangle: React.FC<{
         <Pressable
           onPress={() => {
             changeState(!isDone)
-            navigation.navigate(routes.home, { id: id, checked: isDone })
+            navigation.navigate(routes.home, {
+              id: id,
+              checked: isDone,
+              title: title,
+              subtitle: description,
+            })
           }}>
           <Text style={styles.clear}>MARK AS DONE</Text>
         </Pressable>
