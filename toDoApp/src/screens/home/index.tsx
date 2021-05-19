@@ -1,12 +1,20 @@
 import React, { useCallback, useState } from 'react'
 
-import { FlatListProps, SafeAreaView, View } from 'react-native'
+import {
+  FlatListProps,
+  Pressable,
+  SafeAreaView,
+  Text,
+  View,
+} from 'react-native'
 import { ClearAllDone } from './ClearAllDone'
 import { List } from './List'
 import { ListItem } from './List/ListItem'
 import { styles } from './styles'
-import { listItemType } from './types'
-import { homeProps } from '../../navigation/types'
+import { homeProps, listItemType } from './types'
+import { routes } from '../../navigation/routes'
+import { constants } from './strings'
+import { Color } from '../../styles/Pallete'
 
 const DATA: listItemType[] = [
   {
@@ -40,6 +48,19 @@ const DATA: listItemType[] = [
     checked: true,
   },
 ]
+
+export const homeHeader = ({ navigation }: homeProps) => ({
+  title: constants.homeTitle,
+  headerStyle: styles.header,
+  headerTintColor: Color.almostWhite,
+  headerRight: () => (
+    <Pressable
+      style={styles.button}
+      onPress={() => navigation.navigate(routes.newTask)}>
+      <Text style={styles.addButton}>{constants.add}</Text>
+    </Pressable>
+  ),
+})
 
 export const Home: React.FC<homeProps> = ({ navigation }) => {
   const [list, setList] = useState(DATA)

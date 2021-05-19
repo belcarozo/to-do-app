@@ -12,25 +12,7 @@ export type routesType = {
   details: keyof RootStackParamList
 }
 
-export type HomeScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Home'
->
-
-export type NewTaskScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'NewTask'
->
-
 export type DetailsScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'Details'
 >
-
-export type homeProps = {
-  navigation: HomeScreenNavigationProp | DetailsScreenNavigationProp
-}
-
-export type newTaskProps = {
-  navigation: NewTaskScreenNavigationProp
-}

@@ -2,23 +2,17 @@ import React from 'react'
 import { SafeAreaView, View } from 'react-native'
 import { styles } from './styles'
 import { TextRectangle } from './TextRectangle'
-import { RouteProp } from '@react-navigation/native'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParamList } from '../../navigation/types'
+import { detailsProps } from './types'
+import { constants } from './strings'
+import { Color } from '../../styles/Pallete'
 
-type DetailsScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Details'
->
+export const detailsHeader = () => ({
+  title: constants.detailsTitle,
+  headerStyle: styles.header,
+  headerTintColor: Color.almostWhite,
+})
 
-type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>
-
-type Props = {
-  route: DetailsScreenRouteProp
-  navigation: DetailsScreenNavigationProp
-}
-
-export const Details: React.FC<Props> = ({ route, navigation }) => {
+export const Details: React.FC<detailsProps> = ({ route, navigation }) => {
   const { title, subtitle, checked, id } = route.params
   navigation.setOptions({})
   return (

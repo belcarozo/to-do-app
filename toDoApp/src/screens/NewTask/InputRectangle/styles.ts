@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
   title: {
     color: 'black',
     fontSize: 36,
-    //fontFamily: 'SourceSansPro-Regular',
   },
   description: {
     paddingTop: 17,

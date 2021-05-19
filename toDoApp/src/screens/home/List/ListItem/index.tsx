@@ -3,7 +3,7 @@ import { View, Text, Pressable } from 'react-native'
 import { styles } from './styles'
 import { Check } from './Check/index'
 import { ListItemInterface } from './types'
-import { routes } from '../../../../common/constants'
+import { routes } from '../../../../navigation/routes'
 
 export const ListItem: React.FC<ListItemInterface> = ({
   title,

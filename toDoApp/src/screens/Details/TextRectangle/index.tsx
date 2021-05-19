@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
-import { constants, routes } from '../../../common/constants'
+import { routes } from '../../../navigation/routes'
 import { DetailsScreenNavigationProp } from '../../../navigation/types'
+import { constants } from './strings'
 import { styles } from './styles'
 
 export const TextRectangle: React.FC<{

@@ -1,15 +1,6 @@
 import { routesType } from '../navigation/types'
 
 export const constants = {
-  clear: 'CLEAR ALL DONE',
-  homeTitle: 'Todo',
-  detailsTitle: 'Details',
-  newTaskTitle: 'New task',
-  done: 'Done',
-  notDone: 'Not done',
-  add: '+',
-  save: 'Save',
-  cancel: 'Cancel',
   taskTitle: 'Task title',
   taskDescription: 'Task description',
 }
