@@ -4,7 +4,7 @@ import { Color } from '../../../styles/Pallete'
 export const styles = StyleSheet.create({
   textRectangle: {
     backgroundColor: 'white',
-    paddingLeft: 18,
+    paddingHorizontal: 18,
     paddingBottom: 18,
   },
   title: {
