@@ -1,9 +1,8 @@
 import { createSelector } from 'reselect'
 import { RootState } from '..'
-import { todoState } from './types'
+import { TodoState } from './types'
 
-//funciones que le paso al useSelector tipos con mayus
-const selectTodoStateTree = (state: RootState): todoState => state.todo
+const selectTodoStateTree = (state: RootState): TodoState => state.todo
 
 export const selectList = createSelector(
   selectTodoStateTree,
