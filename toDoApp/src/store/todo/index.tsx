@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { RootState } from '..'
+import { checkAllDone } from './actions'
 import { todoState } from './types'
 
 const initialState: todoState = {
-  value: []
+  value: [],
 }
 export const todoSlice = createSlice({
   name: 'todo',
@@ -13,16 +13,12 @@ export const todoSlice = createSlice({
       state.value.push(action.payload)
     },
     checkUncheck: (state, action) => {
-      state.value[action.payload].checked = !state.value[action.payload].checked 
+      state.value[action.payload].checked = !state.value[action.payload].checked
     },
-    clearAllDone: (state) => {
-      state.value.filter((item) => !item.checked)
-    }
-  }
+    clearAllDone: checkAllDone,
+  },
 })
 
 export const { addTodo, checkUncheck, clearAllDone } = todoSlice.actions
-
-export const selectTodo = (state: RootState) => state.todo.value
 
 export default todoSlice.reducer

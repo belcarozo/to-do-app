@@ -25,4 +25,24 @@ export const styles = StyleSheet.create({
     fontSize: 17,
     color: Color.almostWhite,
   },
+  inputRectangle: {
+    backgroundColor: 'white',
+    paddingHorizontal: 20,
+    paddingTop: 31,
+    paddingBottom: 76,
+  },
+  title: {
+    color: 'black',
+    fontSize: 36,
+  },
+  description: {
+    paddingTop: 17,
+    fontSize: 14,
+    color: Color.lightGray,
+  },
+  titleUnderline: {
+    backgroundColor: Color.xlPink,
+    paddingHorizontal: 20,
+    height: 2,
+  },
 })
