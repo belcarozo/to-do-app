@@ -23,6 +23,6 @@ export const todoSlice = createSlice({
 
 export const { addTodo, checkUncheck, clearAllDone } = todoSlice.actions
 
-export const selectTodo = (state: RootState) => state.counter.value
+export const selectTodo = (state: RootState) => state.todo.value
 
 export default todoSlice.reducer
