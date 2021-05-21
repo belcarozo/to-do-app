@@ -57,6 +57,7 @@ export const NewTask: React.FC<newTaskProps> = ({ navigation }) => {
           placeholderTextColor={Color.whiteThree}
           onChangeText={setSubtitle}
           value={subtitle}
+          multiline={true}
         />
       </View>
       <View style={styles.separator} />
