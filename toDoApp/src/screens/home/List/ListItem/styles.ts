@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  title: {
+  pressableTitle: {
     flex: 1,
   },
   subtitle: {
@@ -34,7 +34,6 @@ export const styles = StyleSheet.create({
   },
   titleFormat: {
     fontSize: 16,
-    //fontFamily: 'SourceSansPro-Regular',
   },
   subtitleFormat: {
     color: Color.lightGray,

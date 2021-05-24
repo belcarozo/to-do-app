@@ -1,21 +1,33 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { styles } from './styles'
 import { Check } from './Check/index'
+import { ListItemInterface } from './types'
+import { routes } from '../../../../navigation/routes'
 
-export const ListItem: React.FC<{
-  title: string
-  subtitle: string
-  checked: boolean
-  id: number
-  onPress: (id: number) => () => void
-}> = ({ title, subtitle, checked, id, onPress }) => (
+export const ListItem: React.FC<ListItemInterface> = ({
+  title,
+  subtitle,
+  checked,
+  id,
+  onPress,
+  navigation,
+}) => (
   <View style={styles.container}>
     <View style={styles.data}>
       <View style={styles.textSection}>
-        <View style={styles.title}>
+        <Pressable
+          style={styles.pressableTitle}
+          onPress={() =>
+            navigation.navigate(routes.details, {
+              title: title,
+              subtitle: subtitle,
+              checked: checked,
+              id: id,
+            })
+          }>
           <Text style={styles.titleFormat}>{title}</Text>
-        </View>
+        </Pressable>
         <View style={styles.subtitle}>
           <Text style={styles.subtitleFormat}>{subtitle}</Text>
         </View>

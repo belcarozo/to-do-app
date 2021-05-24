@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     paddingVertical: 9,
     color: Color.xlPink,
-    //fontFamily: 'SourceSansPro',
     fontWeight: 'bold',
   },
 })
