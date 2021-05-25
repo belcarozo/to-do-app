@@ -1,3 +1,3 @@
-export const constants = {
+export const strings = {
   clear: 'CLEAR ALL DONE',
 }

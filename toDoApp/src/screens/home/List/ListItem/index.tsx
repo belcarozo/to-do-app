@@ -3,39 +3,33 @@ import { View, Text, Pressable } from 'react-native'
 import { styles } from './styles'
 import { Check } from './Check/index'
 import { ListItemInterface } from './types'
-import { routes } from '../../../../navigation/routes'
 
 export const ListItem: React.FC<ListItemInterface> = ({
   title,
-  subtitle,
-  checked,
+  description,
+  completed,
   id,
   onPress,
-  navigation,
-}) => (
-  <View style={styles.container}>
-    <View style={styles.data}>
-      <View style={styles.textSection}>
-        <Pressable
-          style={styles.pressableTitle}
-          onPress={() =>
-            navigation.navigate(routes.details, {
-              title: title,
-              subtitle: subtitle,
-              checked: checked,
-              id: id,
-            })
-          }>
-          <Text style={styles.titleFormat}>{title}</Text>
-        </Pressable>
-        <View style={styles.subtitle}>
-          <Text style={styles.subtitleFormat}>{subtitle}</Text>
+  onPressTitle,
+}) => {
+  return (
+    <View style={styles.container}>
+      <Pressable
+        style={styles.pressableTitle}
+        onPress={onPressTitle(title, description, completed, id)}>
+        <View style={styles.data}>
+          <View style={styles.textSection}>
+            <Text style={styles.titleFormat}>{title}</Text>
+            <View style={styles.description}>
+              <Text style={styles.descriptionFormat}>{description}</Text>
+            </View>
+          </View>
+          <View style={styles.checkboxSection}>
+            <Check value={completed} onPress={onPress} id={id} />
+          </View>
         </View>
-      </View>
-      <View style={styles.checkboxSection}>
-        <Check value={checked} onPress={onPress} id={id} />
-      </View>
+        <View style={styles.separator} />
+      </Pressable>
     </View>
-    <View style={styles.separator} />
-  </View>
-)
+  )
+}

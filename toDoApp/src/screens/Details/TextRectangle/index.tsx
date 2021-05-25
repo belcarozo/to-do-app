@@ -5,8 +5,25 @@ import { routes } from '../../../navigation/routes'
 import { DetailsScreenNavigationProp } from '../../../navigation/types'
 import { checkUncheck } from '../../../store/todo'
 import { selectList } from '../../../store/todo/selectors'
-import { constants } from './strings'
+import { ListItemType } from '../../home/types'
+import { strings } from './strings'
 import { styles } from './styles'
+
+const getStateStrings = (list: ListItemType[], id: number) => {
+  let showState
+  let buttonString
+  const index = list.findIndex((elem) => elem.id === id)
+  if (index !== -1) {
+    showState = list[index].completed ? strings.done : strings.notDone
+    buttonString = list[index].completed
+      ? strings.notDoneButton
+      : strings.doneButton
+  } else {
+    showState = strings.notDone
+    buttonString = strings.notDoneButton
+  }
+  return { showState, buttonString }
+}
 
 export const TextRectangle: React.FC<{
   title: string
@@ -22,11 +39,8 @@ export const TextRectangle: React.FC<{
   }, [dispatch, id, navigation])
 
   const list = useSelector(selectList)
-  const index = list.findIndex((elem) => elem.id === id)
-  const showState = list[index].checked ? constants.done : constants.notDone
-  const buttonString = list[index].checked
-    ? constants.notDoneButton
-    : constants.doneButton
+  const { showState, buttonString } = getStateStrings(list, id)
+
   return (
     <View style={styles.textRectangle}>
       <Text style={styles.state}>{showState}</Text>

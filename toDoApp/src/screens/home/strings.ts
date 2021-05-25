@@ -1,4 +1,4 @@
-export const constants = {
+export const strings = {
   homeTitle: 'Todo',
   add: '+',
 }

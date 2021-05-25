@@ -1,4 +1,4 @@
-export const constants = {
+export const strings = {
   newTaskTitle: 'New task',
   save: 'Save',
   cancel: 'Cancel',

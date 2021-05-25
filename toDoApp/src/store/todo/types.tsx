@@ -1,7 +1,8 @@
-import { listItemType } from '../../screens/Home/types'
+import { ListItemType } from '../../screens/Home/types'
 
 export interface TodoState {
-  value: listItemType[]
+  value: ListItemType[]
+  error?: string
 }
 
 export interface ActionType {
