@@ -5,14 +5,16 @@ import inactive from '../../../../../assets/images/iconCheckboxInactive.png'
 
 export const Check: React.FC<{
   value: boolean
-  onPress: (id: number) => () => { payload: any; type: string }
+  title: string
+  description: string
+  onPress: (title: string, description: string, id: number) => () => void
   id: number
-}> = ({ value, onPress, id }) => {
+}> = ({ value, title, description, onPress, id }) => {
   const checkBoxImage = value ? active : inactive
 
   return (
     <View>
-      <Pressable onPress={onPress(id)}>
+      <Pressable onPress={onPress(title, description, id)}>
         <Image source={checkBoxImage} />
       </Pressable>
     </View>

@@ -24,7 +24,7 @@ export const todoSlice = createSlice({
     })
     builder.addCase(postTodo.rejected, (state) => {
       state.error = 'error'
-      Alert.alert('Oh! There was an error')
+      Alert.alert('Oh no! There was an error')
     })
   },
 })

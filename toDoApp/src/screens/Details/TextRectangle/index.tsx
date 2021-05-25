@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { routes } from '../../../navigation/routes'
 import { DetailsScreenNavigationProp } from '../../../navigation/types'
 import { checkUncheck } from '../../../store/todo'
+import { postTodo } from '../../../store/todo/actions'
 import { selectList } from '../../../store/todo/selectors'
 import { ListItemType } from '../../home/types'
 import { strings } from './strings'
@@ -34,9 +35,11 @@ export const TextRectangle: React.FC<{
   const dispatch = useDispatch()
 
   const onPress = useCallback(() => {
+    const todo = { title, description, id }
     dispatch(checkUncheck(id))
+    dispatch(postTodo(todo))
     navigation.navigate(routes.home)
-  }, [dispatch, id, navigation])
+  }, [dispatch, id, navigation, description, title])
 
   const list = useSelector(selectList)
   const { showState, buttonString } = getStateStrings(list, id)

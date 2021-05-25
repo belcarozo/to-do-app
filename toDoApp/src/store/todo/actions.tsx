@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ActionType, TodoState } from './types'
+import axios from 'axios'
 
 export const clear = (state: TodoState) => {
   state.value = state.value.filter((item) => !item.completed)
@@ -15,19 +16,31 @@ export const add = (state: TodoState, action: ActionType) => {
 }
 
 export const getTodos = createAsyncThunk('todos/getTodos', async () => {
-  const result = await fetch('https://rn-training-backend.herokuapp.com/todos')
-  return result.json()
+  const result = await axios.get(
+    'https://rn-training-backend.herokuapp.com/todos',
+  )
+  const { data } = result
+  return data
 })
 
 export const postTodo = createAsyncThunk(
   'todos/postTodo',
   async (todo: any) => {
-    console.log('hola soy el todo', todo)
-    const result = await fetch(
+    const result = await axios.post(
       'https://rn-training-backend.herokuapp.com/todos',
-      { method: 'POST', body: todo },
+      todo,
     )
-    console.log('hola pepe', result)
-    return result.json()
+    return result
+  },
+)
+
+export const getTodoByID = createAsyncThunk(
+  'todos/getTodoByID',
+  async (id: number) => {
+    const result = await axios.get(
+      `https://rn-training-backend.herokuapp.com/todos/${id}`,
+    )
+    const { data } = result
+    return data
   },
 )

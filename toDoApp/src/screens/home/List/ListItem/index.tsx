@@ -25,7 +25,13 @@ export const ListItem: React.FC<ListItemInterface> = ({
             </View>
           </View>
           <View style={styles.checkboxSection}>
-            <Check value={completed} onPress={onPress} id={id} />
+            <Check
+              title={title}
+              description={description}
+              value={completed}
+              onPress={onPress}
+              id={id}
+            />
           </View>
         </View>
         <View style={styles.separator} />

@@ -6,8 +6,6 @@ export interface ListItemType {
   description: string
   completed: boolean
   id: number
-  created_at: string
-  updated_at: string
 }
 export type HomeScreenNavigationProp = StackNavigationProp<
   RootStackParamList,

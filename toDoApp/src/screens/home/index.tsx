@@ -18,7 +18,7 @@ import { Color } from '../../styles/Pallete'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkUncheck, clearAllDone } from '../../store/todo'
 import { selectList } from '../../store/todo/selectors'
-import { getTodos } from '../../store/todo/actions'
+import { getTodos, postTodo } from '../../store/todo/actions'
 
 export const Home: React.FC<HomeProps> = ({ navigation }) => {
   const dispatch = useDispatch()
@@ -26,7 +26,11 @@ export const Home: React.FC<HomeProps> = ({ navigation }) => {
   const list = useSelector(selectList)
 
   const onPress = useCallback(
-    (id: number) => () => dispatch(checkUncheck(id)),
+    (title: string, description: string, id: number) => () => {
+      const todo = { title, description, id }
+      dispatch(checkUncheck(id))
+      dispatch(postTodo(todo))
+    },
     [dispatch],
   )
 

@@ -9,3 +9,9 @@ export interface ActionType {
   payload: any
   type: string
 }
+
+export interface TodoPostType {
+  title: string
+  description: string
+  completed: boolean
+}
