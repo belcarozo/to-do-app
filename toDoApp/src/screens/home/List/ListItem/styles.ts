@@ -10,16 +10,17 @@ export const styles = StyleSheet.create({
   data: {
     flexDirection: 'row',
     height: 70,
-    paddingHorizontal: 16,
+    paddingLeft: 16,
     paddingTop: 16,
     paddingBottom: 14,
   },
   textSection: {
-    flex: 18,
+    flex: 6.7,
   },
   checkboxSection: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   pressableTitle: {
     flex: 1,

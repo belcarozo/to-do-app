@@ -6,21 +6,20 @@ import { detailsProps } from './types'
 import { constants } from './strings'
 import { Color } from '../../styles/Pallete'
 
-export const detailsHeader = () => ({
-  title: constants.detailsTitle,
-  headerStyle: styles.header,
-  headerTintColor: Color.almostWhite,
-})
-
 export const Details: React.FC<detailsProps> = ({ route, navigation }) => {
-  const { title, subtitle, checked, id } = route.params
-  navigation.setOptions({})
+  const { title, subtitle, id } = route.params
+
+  navigation.setOptions({
+    title: constants.detailsTitle,
+    headerStyle: styles.header,
+    headerTintColor: Color.almostWhite,
+  })
+
   return (
     <SafeAreaView style={styles.container}>
       <TextRectangle
         title={title}
         description={subtitle}
-        checked={checked}
         id={id}
         navigation={navigation}
       />

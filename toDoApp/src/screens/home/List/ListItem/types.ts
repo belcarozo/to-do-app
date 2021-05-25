@@ -12,6 +12,6 @@ export interface ListItemInterface {
   subtitle: string
   checked: boolean
   id: number
-  onPress: (id: number) => () => void
+  onPress: (id: number) => () => { payload: any; type: string }
   navigation: HomeScreenNavigationProp
 }
