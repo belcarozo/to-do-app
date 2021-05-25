@@ -3,6 +3,7 @@ import { ListItemType } from '../../screens/Home/types'
 export interface TodoState {
   value: ListItemType[]
   error?: string
+  actual?: ListItemType
 }
 
 export interface ActionType {

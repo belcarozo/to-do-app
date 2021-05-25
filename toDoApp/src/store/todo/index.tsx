@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { Alert } from 'react-native'
-import { clear, check, add, getTodos, postTodo } from './actions'
+import { clear, check, add, getTodos, postTodo, getTodoByID } from './actions'
 import { TodoState } from './types'
 
 const initialState: TodoState = {
   value: [],
   error: undefined,
+  actual: undefined,
 }
 export const todoSlice = createSlice({
   name: 'todos',
@@ -25,6 +26,9 @@ export const todoSlice = createSlice({
     builder.addCase(postTodo.rejected, (state) => {
       state.error = 'error'
       Alert.alert('Oh no! There was an error')
+    })
+    builder.addCase(getTodoByID.fulfilled, (state, action) => {
+      state.actual = action.payload
     })
   },
 })
