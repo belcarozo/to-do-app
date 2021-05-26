@@ -7,7 +7,7 @@ import { strings } from './strings'
 import { Color } from '../../styles/Pallete'
 
 export const Details: React.FC<detailsProps> = ({ route, navigation }) => {
-  const { title, description, id } = route.params
+  const { id } = route.params
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -19,12 +19,7 @@ export const Details: React.FC<detailsProps> = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TextRectangle
-        title={title}
-        description={description}
-        id={id}
-        navigation={navigation}
-      />
+      <TextRectangle id={id} navigation={navigation} />
       <View style={styles.separator} />
     </SafeAreaView>
   )

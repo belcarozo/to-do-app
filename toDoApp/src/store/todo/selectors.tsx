@@ -8,7 +8,6 @@ export const selectList = createSelector(
   selectTodoStateTree,
   (state) => state.value,
 )
-
 export const selectTodo = createSelector(
   selectTodoStateTree,
   (state) => state.actual,

@@ -6,7 +6,6 @@ import { TodoState } from './types'
 const initialState: TodoState = {
   value: [],
   error: undefined,
-  actual: undefined,
 }
 export const todoSlice = createSlice({
   name: 'todos',
@@ -28,7 +27,7 @@ export const todoSlice = createSlice({
       Alert.alert('Oh no! There was an error')
     })
     builder.addCase(getTodoByID.fulfilled, (state, action) => {
-      state.actual = action.payload
+      state.actualID = action.payload
     })
   },
 })
