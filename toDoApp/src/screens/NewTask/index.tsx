@@ -1,5 +1,12 @@
 import React, { useLayoutEffect, useState } from 'react'
-import { Pressable, SafeAreaView, Text, TextInput, View } from 'react-native'
+import {
+  Alert,
+  Pressable,
+  SafeAreaView,
+  Text,
+  TextInput,
+  View,
+} from 'react-native'
 import { useDispatch } from 'react-redux'
 import { routes } from '../../navigation/routes'
 import { postTodo } from '../../store/todo/actions'
@@ -34,13 +41,21 @@ export const NewTask: React.FC<newTaskProps> = ({ navigation }) => {
   })
 
   const onPressSave = () => {
-    navigation.navigate(routes.home)
     const newTodo = {
       title: title,
       description: description,
       completed: false,
     }
-    dispatch(postTodo(newTodo))
+    if (title !== '' && description !== '') {
+      navigation.goBack()
+      dispatch(postTodo(newTodo))
+    } else if (title === '' && description === '') {
+      Alert.alert(strings.invalidTitleAndDescriptionError)
+    } else if (title === '') {
+      Alert.alert(strings.invalidTitleError)
+    } else {
+      Alert.alert(strings.invalidDescriptionError)
+    }
   }
   return (
     <SafeAreaView style={styles.container}>

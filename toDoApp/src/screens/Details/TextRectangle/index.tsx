@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react'
 import { Pressable, Text, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
-import { routes } from '../../../navigation/routes'
 import { DetailsScreenNavigationProp } from '../../../navigation/types'
 import { getTodoByID, updateTodo } from '../../../store/todo/actions'
 import { selectList, selectTodo } from '../../../store/todo/selectors'
@@ -46,7 +45,7 @@ export const TextRectangle: React.FC<{
     const newTodo = { title, description, completed: !completed }
     const sendTodo = { id, todo: newTodo }
     dispatch(updateTodo(sendTodo))
-    navigation.navigate(routes.home)
+    navigation.goBack()
   }, [dispatch, navigation, completed, description, title, id])
 
   const list = useSelector(selectList)
