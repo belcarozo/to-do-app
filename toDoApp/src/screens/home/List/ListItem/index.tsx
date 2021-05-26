@@ -31,6 +31,7 @@ export const ListItem: React.FC<ListItemInterface> = ({
               value={completed}
               onPress={onPress}
               id={id}
+              completed={completed}
             />
           </View>
         </View>

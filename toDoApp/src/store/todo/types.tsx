@@ -16,3 +16,5 @@ export interface TodoPostType {
   description: string
   completed: boolean
 }
+
+export type TodoDraft = Omit<ListItemType, 'id'>

@@ -1,17 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { Alert } from 'react-native'
-import { clear, check, add, getTodos, postTodo, getTodoByID } from './actions'
+import {
+  clear,
+  check,
+  getTodos,
+  postTodo,
+  getTodoByID,
+  updateTodo,
+} from './actions'
+import { strings } from './strings'
 import { TodoState } from './types'
 
 const initialState: TodoState = {
   value: [],
   error: undefined,
+  actual: undefined,
 }
 export const todoSlice = createSlice({
   name: 'todos',
   initialState: initialState,
   reducers: {
-    addTodo: add,
     checkUncheck: check,
     clearAllDone: clear,
   },
@@ -21,17 +29,38 @@ export const todoSlice = createSlice({
     })
     builder.addCase(getTodos.rejected, (state) => {
       state.error = 'error'
+      showError()
+    })
+    builder.addCase(postTodo.fulfilled, (state, action) => {
+      state.value.push(action.payload)
     })
     builder.addCase(postTodo.rejected, (state) => {
       state.error = 'error'
-      Alert.alert('Oh no! There was an error')
+      showError()
     })
     builder.addCase(getTodoByID.fulfilled, (state, action) => {
-      state.actualID = action.payload
+      state.actual = action.payload
+    })
+    builder.addCase(getTodoByID.rejected, (state) => {
+      state.actual = undefined
+      showError()
+    })
+    builder.addCase(updateTodo.fulfilled, (state, action) => {
+      const index = state.value.findIndex(
+        (elem) => action.payload.id === elem.id,
+      )
+      state.value[index].completed = !state.value[index].completed
+    })
+    builder.addCase(updateTodo.rejected, (state) => {
+      state.error = 'error'
+      showError()
     })
   },
 })
 
-export const { addTodo, checkUncheck, clearAllDone } = todoSlice.actions
+const showError = () => {
+  Alert.alert(strings.error)
+}
+export const { checkUncheck, clearAllDone } = todoSlice.actions
 
 export default todoSlice.reducer

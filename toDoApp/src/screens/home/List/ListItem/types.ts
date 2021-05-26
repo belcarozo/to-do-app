@@ -3,7 +3,12 @@ export interface ListItemInterface {
   description: string
   completed: boolean
   id: number
-  onPress: (title: string, description: string, id: number) => () => void
+  onPress: (
+    title: string,
+    description: string,
+    id: number,
+    completed: boolean,
+  ) => () => void
   onPressTitle: (
     title: string,
     description: string,

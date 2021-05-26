@@ -7,14 +7,20 @@ export const Check: React.FC<{
   value: boolean
   title: string
   description: string
-  onPress: (title: string, description: string, id: number) => () => void
+  completed: boolean
+  onPress: (
+    title: string,
+    description: string,
+    id: number,
+    completed: boolean,
+  ) => () => void
   id: number
-}> = ({ value, title, description, onPress, id }) => {
+}> = ({ value, title, description, onPress, id, completed }) => {
   const checkBoxImage = value ? active : inactive
 
   return (
     <View>
-      <Pressable onPress={onPress(title, description, id)}>
+      <Pressable onPress={onPress(title, description, id, completed)}>
         <Image source={checkBoxImage} />
       </Pressable>
     </View>

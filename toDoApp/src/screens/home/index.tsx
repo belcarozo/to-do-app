@@ -16,9 +16,9 @@ import { routes } from '../../navigation/routes'
 import { strings } from './strings'
 import { Color } from '../../styles/Pallete'
 import { useDispatch, useSelector } from 'react-redux'
-import { checkUncheck, clearAllDone } from '../../store/todo'
+import { clearAllDone } from '../../store/todo'
 import { selectList } from '../../store/todo/selectors'
-import { getTodos, postTodo } from '../../store/todo/actions'
+import { getTodos, updateTodo } from '../../store/todo/actions'
 
 export const Home: React.FC<HomeProps> = ({ navigation }) => {
   const dispatch = useDispatch()
@@ -26,16 +26,24 @@ export const Home: React.FC<HomeProps> = ({ navigation }) => {
   const list = useSelector(selectList)
 
   const onPress = useCallback(
-    (title: string, description: string, id: number) => () => {
-      const todo = { title, description, id }
-      dispatch(checkUncheck(id))
-      dispatch(postTodo(todo))
+    (
+      title: string,
+      description: string,
+      id: number,
+      completed: boolean,
+    ) => () => {
+      const todo = { title, description, completed: !completed }
+      const sendTodo = {
+        id,
+        todo,
+      }
+      dispatch(updateTodo(sendTodo))
     },
     [dispatch],
   )
 
   useEffect(() => {
-    dispatch(getTodos())
+    dispatch(getTodos({}))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

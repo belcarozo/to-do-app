@@ -2,14 +2,11 @@ import React, { useLayoutEffect, useState } from 'react'
 import { Pressable, SafeAreaView, Text, TextInput, View } from 'react-native'
 import { useDispatch } from 'react-redux'
 import { routes } from '../../navigation/routes'
-import { addTodo } from '../../store/todo'
 import { postTodo } from '../../store/todo/actions'
 import { Color } from '../../styles/Pallete'
 import { strings } from './strings'
 import { styles } from './styles'
 import { newTaskProps } from './types'
-
-var newId = 0
 
 export const NewTask: React.FC<newTaskProps> = ({ navigation }) => {
   const [title, setTitle] = useState('')
@@ -42,11 +39,8 @@ export const NewTask: React.FC<newTaskProps> = ({ navigation }) => {
       title: title,
       description: description,
       completed: false,
-      id: newId,
     }
-    dispatch(addTodo(newTodo))
     dispatch(postTodo(newTodo))
-    newId += 1
   }
   return (
     <SafeAreaView style={styles.container}>

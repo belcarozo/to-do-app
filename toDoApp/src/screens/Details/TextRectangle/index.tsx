@@ -3,8 +3,7 @@ import { Pressable, Text, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { routes } from '../../../navigation/routes'
 import { DetailsScreenNavigationProp } from '../../../navigation/types'
-import { checkUncheck } from '../../../store/todo'
-import { getTodoByID, postTodo } from '../../../store/todo/actions'
+import { getTodoByID, updateTodo } from '../../../store/todo/actions'
 import { selectList, selectTodo } from '../../../store/todo/selectors'
 import { ListItemType } from '../../home/types'
 import { strings } from './strings'
@@ -35,22 +34,20 @@ export const TextRectangle: React.FC<{
   dispatch(getTodoByID(id))
 
   const todo = useSelector(selectTodo)
-  let title: string | undefined
-  let description: string | undefined
+  let title: string
+  let description: string
+  let completed: boolean
 
-  if (todo) {
-    title = todo.title
-    description = todo.description
-  } else {
-    title = ''
-    description = ''
-  }
+  title = todo?.title ?? ''
+  description = todo?.description ?? ''
+  completed = todo?.completed || false
 
   const onPress = useCallback(() => {
-    dispatch(checkUncheck(id))
-    dispatch(postTodo(todo))
+    const newTodo = { title, description, completed: !completed }
+    const sendTodo = { id, todo: newTodo }
+    dispatch(updateTodo(sendTodo))
     navigation.navigate(routes.home)
-  }, [dispatch, id, navigation, todo])
+  }, [dispatch, navigation, completed, description, title, id])
 
   const list = useSelector(selectList)
   const { showState, buttonString } = getStateStrings(list, id)
