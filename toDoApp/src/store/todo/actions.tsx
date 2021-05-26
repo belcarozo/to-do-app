@@ -1,16 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ActionType, TodoDraft, TodoState } from './types'
+import { TodoDraft, TodoState } from './types'
 import axios from 'axios'
 import { goBack } from '../../common/rootNavigation'
 import { ListItemType } from '../../screens/Home/types'
 
 export const clear = (state: TodoState) => {
   state.value = state.value.filter((item) => !item.completed)
-}
-
-export const check = (state: TodoState, action: ActionType) => {
-  const index = state.value.findIndex((elem) => action.payload === elem.id)
-  state.value[index].completed = !state.value[index].completed
 }
 
 export const getTodos = createAsyncThunk<ListItemType[], {}>(
@@ -63,3 +58,11 @@ export const updateTodo = createAsyncThunk<
   const { data } = result
   return data
 })
+
+export const deleteTodo = createAsyncThunk<number, number>(
+  'todos/deleteTodo',
+  async (id) => {
+    await axios.delete(`https://rn-training-backend.herokuapp.com/todos/${id}`)
+    return id
+  },
+)

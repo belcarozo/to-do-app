@@ -16,9 +16,8 @@ import { routes } from '../../navigation/routes'
 import { strings } from './strings'
 import { Color } from '../../styles/Pallete'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearAllDone } from '../../store/todo'
 import { selectList } from '../../store/todo/selectors'
-import { getTodos, updateTodo } from '../../store/todo/actions'
+import { deleteTodo, getTodos, updateTodo } from '../../store/todo/actions'
 
 export const Home: React.FC<HomeProps> = ({ navigation }) => {
   const dispatch = useDispatch()
@@ -72,7 +71,22 @@ export const Home: React.FC<HomeProps> = ({ navigation }) => {
     [onPress, onPressTitle],
   )
 
-  const clearDone = useCallback(() => dispatch(clearAllDone()), [dispatch])
+  const clearDone = useCallback(() => {
+    //dispatch(clearAllDone())
+    // const newList = list.filter((item) => {
+    //   dispatch(deleteTodo(item.id))
+    //   return !item.completed
+    // })
+    // yo quiero que filtre el elemento  solo si lo puddo eliminar (fulfilled)
+    // como se si lo pudo eliminar? lo se porque en ese caso  encargar es que recorra todo
+    // y elimine cadaa uno, y con "eliminar" me refiero a llamar al dispatch si esta completado.
+
+    list.forEach((item) => {
+      if (item.completed) {
+        dispatch(deleteTodo(item.id))
+      }
+    })
+  }, [dispatch, list])
 
   useLayoutEffect(() => {
     navigation.setOptions({

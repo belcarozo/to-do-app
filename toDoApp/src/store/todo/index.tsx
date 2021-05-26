@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 import { Alert } from 'react-native'
 import {
   clear,
-  check,
   getTodos,
   postTodo,
   getTodoByID,
   updateTodo,
+  deleteTodo,
 } from './actions'
 import { strings } from './strings'
 import { TodoState } from './types'
@@ -20,7 +20,6 @@ export const todoSlice = createSlice({
   name: 'todos',
   initialState: initialState,
   reducers: {
-    checkUncheck: check,
     clearAllDone: clear,
   },
   extraReducers: (builder) => {
@@ -55,12 +54,20 @@ export const todoSlice = createSlice({
       state.error = 'error'
       showError()
     })
+    builder.addCase(deleteTodo.fulfilled, (state, action) => {
+      const index = state.value.findIndex((elem) => action.payload === elem.id)
+      state.value.splice(index, 1)
+    })
+    builder.addCase(deleteTodo.rejected, (state) => {
+      state.error = 'error'
+      showError()
+    })
   },
 })
 
 const showError = () => {
   Alert.alert(strings.error)
 }
-export const { checkUncheck, clearAllDone } = todoSlice.actions
+export const { clearAllDone } = todoSlice.actions
 
 export default todoSlice.reducer
