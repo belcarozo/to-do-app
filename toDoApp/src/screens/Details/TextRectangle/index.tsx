@@ -8,15 +8,15 @@ import { ListItemType } from '../../home/types'
 import { strings } from './strings'
 import { styles } from './styles'
 
-const getStateStrings = (list: ListItemType[], id: number) => {
+export const getStateStrings = (list: ListItemType[], id: number) => {
   let showState
   let buttonString
   const index = list.findIndex((elem) => elem.id === id)
   if (index !== -1) {
     showState = list[index].completed ? strings.done : strings.notDone
     buttonString = list[index].completed
-      ? strings.notDoneButton
-      : strings.doneButton
+      ? strings.doneButton
+      : strings.notDoneButton
   } else {
     showState = strings.notDone
     buttonString = strings.notDoneButton
