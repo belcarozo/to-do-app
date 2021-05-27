@@ -72,15 +72,6 @@ export const Home: React.FC<HomeProps> = ({ navigation }) => {
   )
 
   const clearDone = useCallback(() => {
-    //dispatch(clearAllDone())
-    // const newList = list.filter((item) => {
-    //   dispatch(deleteTodo(item.id))
-    //   return !item.completed
-    // })
-    // yo quiero que filtre el elemento  solo si lo puddo eliminar (fulfilled)
-    // como se si lo pudo eliminar? lo se porque en ese caso  encargar es que recorra todo
-    // y elimine cadaa uno, y con "eliminar" me refiero a llamar al dispatch si esta completado.
-
     list.forEach((item) => {
       if (item.completed) {
         dispatch(deleteTodo(item.id))
