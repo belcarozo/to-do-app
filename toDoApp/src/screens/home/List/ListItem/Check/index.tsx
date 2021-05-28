@@ -4,7 +4,6 @@ import active from '../../../../../assets/images/iconCheckboxActive.png'
 import inactive from '../../../../../assets/images/iconCheckboxInactive.png'
 
 export const Check: React.FC<{
-  value: boolean
   title: string
   description: string
   completed: boolean
@@ -15,8 +14,8 @@ export const Check: React.FC<{
     completed: boolean,
   ) => () => void
   id: number
-}> = ({ value, title, description, onPress, id, completed }) => {
-  const checkBoxImage = value ? active : inactive
+}> = ({ title, description, onPress, id, completed }) => {
+  const checkBoxImage = completed ? active : inactive
 
   return (
     <View>

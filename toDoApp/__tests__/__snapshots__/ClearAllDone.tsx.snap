@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering new task should match to snapshot 1`] = `
+<Pressable
+  onPress={[MockFunction]}
+>
+  <Text
+    style={
+      Object {
+        "color": "rgb(255, 25, 123)",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "paddingVertical": 9,
+      }
+    }
+  >
+    CLEAR ALL DONE
+  </Text>
+</Pressable>
+`;

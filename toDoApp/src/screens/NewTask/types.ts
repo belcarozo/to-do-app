@@ -5,6 +5,6 @@ export type NewTaskScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'NewTask'
 >
-export type newTaskProps = {
+export type NewTaskProps = {
   navigation: NewTaskScreenNavigationProp
 }

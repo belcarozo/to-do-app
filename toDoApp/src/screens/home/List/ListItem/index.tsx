@@ -28,7 +28,6 @@ export const ListItem: React.FC<ListItemInterface> = ({
             <Check
               title={title}
               description={description}
-              value={completed}
               onPress={onPress}
               id={id}
               completed={completed}

@@ -1,5 +1,5 @@
-import { getStateStrings } from '../src/screens/Details/TextRectangle'
-import { strings } from '../src/screens/Details/TextRectangle/strings'
+import { getStateStrings } from '../src/screens/Details'
+import { strings } from '../src/screens/Details/strings'
 
 test('the string of the button if the element is completed', () => {
   const list = [{ title: 'hola', description: 'hola', completed: true, id: 0 }]
