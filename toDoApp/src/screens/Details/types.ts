@@ -9,7 +9,7 @@ export type DetailsScreenNavigationProp = StackNavigationProp<
 
 export type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>
 
-export type detailsProps = {
+export type DetailsProps = {
   route: DetailsScreenRouteProp
   navigation: DetailsScreenNavigationProp
 }

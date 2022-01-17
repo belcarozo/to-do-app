@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering list should match to snapshot 1`] = `
+<FlatList
+  data={
+    Array [
+      Object {
+        "completed": true,
+        "description": "test",
+        "id": 0,
+        "title": "test",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  removeClippedSubviews={false}
+  renderItem={[MockFunction]}
+  scrollEventThrottle={50}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;

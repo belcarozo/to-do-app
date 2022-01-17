@@ -13,9 +13,9 @@ import { postTodo } from '../../store/todo/actions'
 import { Color } from '../../styles/Pallete'
 import { strings } from './strings'
 import { styles } from './styles'
-import { newTaskProps } from './types'
+import { NewTaskProps } from './types'
 
-export const NewTask: React.FC<newTaskProps> = ({ navigation }) => {
+export const NewTask: React.FC<NewTaskProps> = ({ navigation }) => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const dispatch = useDispatch()
