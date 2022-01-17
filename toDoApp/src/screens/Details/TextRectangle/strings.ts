@@ -1,4 +1,4 @@
-export const constants = {
+export const strings = {
   done: 'Done',
   notDone: 'Not done',
   doneButton: 'MARK AS DONE',

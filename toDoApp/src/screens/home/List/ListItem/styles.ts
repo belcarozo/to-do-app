@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   pressableTitle: {
     flex: 1,
   },
-  subtitle: {
+  description: {
     flex: 1,
   },
   separator: {
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
   titleFormat: {
     fontSize: 16,
   },
-  subtitleFormat: {
+  descriptionFormat: {
     color: Color.lightGray,
     fontSize: 14,
   },

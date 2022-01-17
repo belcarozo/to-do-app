@@ -3,7 +3,12 @@ import { StackNavigationProp } from '@react-navigation/stack'
 export type RootStackParamList = {
   Home: undefined
   NewTask: undefined
-  Details: { title: string; subtitle: string; checked: boolean; id: number }
+  Details: {
+    title: string
+    description: string
+    completed: boolean
+    id: number
+  }
 }
 
 export type routesType = {

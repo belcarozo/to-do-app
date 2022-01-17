@@ -1,17 +1,18 @@
-import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParamList } from '../../../../navigation/types'
-import { HomeScreenNavigationProp } from '../../types'
-
-type DetailsScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Details'
->
-
 export interface ListItemInterface {
   title: string
-  subtitle: string
-  checked: boolean
+  description: string
+  completed: boolean
   id: number
-  onPress: (id: number) => () => { payload: any; type: string }
-  navigation: HomeScreenNavigationProp
+  onPress: (
+    title: string,
+    description: string,
+    id: number,
+    completed: boolean,
+  ) => () => void
+  onPressTitle: (
+    title: string,
+    description: string,
+    completed: boolean,
+    id: number,
+  ) => () => void
 }
